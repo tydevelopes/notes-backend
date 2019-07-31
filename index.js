@@ -40,12 +40,12 @@ let notes = [
 app.get('/', (req, res) => {
   res.send('<h1>tyvoiax is amazing!</h1>');
 });
-app.get('/notes', (req, res) => {
+app.get('/api/notes', (req, res) => {
   res.json(notes);
 });
 
 // fetch a single note
-app.get('/notes/:id', (request, response) => {
+app.get('/api/notes/:id', (request, response) => {
   const id = Number(request.params.id);
   console.log(id);
 
@@ -58,7 +58,7 @@ app.get('/notes/:id', (request, response) => {
 });
 
 // delete a single note
-app.delete('/notes/:id', (request, response) => {
+app.delete('/api/notes/:id', (request, response) => {
   const id = Number(request.params.id);
   notes = notes.filter(note => note.id !== id);
   response.status(204).end();
@@ -69,7 +69,7 @@ const generateId = () => {
   const maxId = notes.length > 0 ? Math.max(...notes.map(note => note.id)) : 0;
   return maxId + 1;
 };
-app.post('/notes', (request, response) => {
+app.post('/api/notes', (request, response) => {
   const body = request.body;
   if (!body.content) {
     return response.status(400).json({
