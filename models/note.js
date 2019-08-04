@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const password = require('../sensitive/password');
+//const password = require('../sensitive/password');
 
 mongoose.set('useFindAndModify', false);
 
