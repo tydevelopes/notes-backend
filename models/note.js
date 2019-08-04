@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const password = require('../sensitive/password');
 
+mongoose.set('useFindAndModify', false)
+
 // DATABASE
 // url to database.
 // NOTE:- change default test name to a good name
