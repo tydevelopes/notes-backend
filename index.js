@@ -40,9 +40,9 @@ app.use(
 //   }
 // ];
 
-app.get('/', (req, res) => {
-  res.send('<h1>tyvoiax is amazing!</h1>');
-});
+// app.get('/', (req, res) => {
+//   res.send('<h1>tyvoiax is amazing!</h1>');
+// });
 app.get('/api/notes', (request, response) => {
   Note.find({}).then(notes => {
     response.json(notes.map(note => note.toJSON()));
