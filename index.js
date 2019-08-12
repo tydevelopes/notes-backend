@@ -5,9 +5,5 @@ const config = require('./utils/config');
 const server = http.createServer(app);
 
 server.listen(config.PORT, () =>
-  conole.log(`Server running on port ${config.PO}`)
+  console.log(`Server running on port ${config.PORT}`)
 );
-
-// if (process.env.NODE_ENV !== 'production') {
-//   require('dotenv').config();
-// }
