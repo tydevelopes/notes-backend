@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
 const notesRouter = require('./controllers/notes');
+const userRouter = require('./controllers/users');
+const loginRouter = require('./controllers/login');
 const middleware = require('./utils/middleware');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
@@ -33,6 +35,8 @@ app.use(
 );
 
 app.use('/api/notes', notesRouter);
+app.use('/api/users', userRouter);
+app.use('/api/login', loginRouter);
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
