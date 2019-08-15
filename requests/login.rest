@@ -1,9 +1,7 @@
-POST http://localhost:3001/api/notes HTTP/1.1
+POST http://localhost:3001/api/login  HTTP/1.1
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vbW8iLCJpZCI6IjVkNTQ1M2MzNThkNjAyNTBiZmE3ZDQ5NyIsImlhdCI6MTU2NTgyNjY5MX0.2ROxw24K8HSufqV63WXp8W5_IvT3SME5e79Xh4wPRHk
 
- {
-	"content": "with token",
-	"important": true,
-  "userId": "5d5453c358d60250bfa7d497"
+{
+  "username": "jojo",
+  "password": "123acb"
 }
