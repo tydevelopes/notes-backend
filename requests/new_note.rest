@@ -3,7 +3,7 @@ Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvam8iLCJpZCI6IjVkNTRmZmQ1NTIwMTVhNTQ3YjVkMTlhNyIsImlhdCI6MTU2NTg1MjkzMn0.9fegwD5ut4CGlHJyCesfSgClGkE6r4rrjrDBCjReXKc
 
  {
-	"content": "money making move",
+	"content": "i guess id needed",
 	"important": true,
 	"userId": "5d54ffd552015a547b5d19a7"
 }

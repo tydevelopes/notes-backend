@@ -39,20 +39,16 @@ notesRouter.post('/', async (request, response, next) => {
     if (!token || !decodedToken.id) {
       return response.status(401).json({ error: 'token missing or invalid' });
     }
-  } catch (exception) {
-    next(exception);
-  }
 
-  const user = await User.findById(body.userId);
+    const user = await User.findById(decodedToken.id);
 
-  const note = new Note({
-    content: body.content,
-    important: body.important || false,
-    date: new Date(),
-    user: user._id
-  });
+    const note = new Note({
+      content: body.content,
+      important: body.important || false,
+      date: new Date(),
+      user: user._id
+    });
 
-  try {
     const savedNote = await note.save();
     user.notes = user.notes.concat(savedNote._id);
     await user.save();
@@ -64,7 +60,8 @@ notesRouter.post('/', async (request, response, next) => {
 
 notesRouter.delete('/:id', async (request, response, next) => {
   try {
-    await Note.findByIdAndRemove(request.params.id);
+    const resultafterDelete = await Note.findByIdAndRemove(request.params.id);
+    console.log('whats returned after delete?: ', resultafterDelete);
     response.status(204).end();
   } catch (exception) {
     next(exception);
