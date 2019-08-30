@@ -1,7 +1,7 @@
 const config = require('./utils/config');
 const express = require('express');
 const bodyParser = require('body-parser');
-const app = express();
+const helmet = require('helmet');
 const cors = require('cors');
 const notesRouter = require('./controllers/notes');
 const userRouter = require('./controllers/users');
@@ -10,6 +10,9 @@ const middleware = require('./utils/middleware');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const logger = require('./utils/logger');
+
+const app = express();
+app.use(helmet());
 
 logger.info('connecting to', config.MONGODB_URI);
 
@@ -37,6 +40,11 @@ app.use(
 app.use('/api/notes', notesRouter);
 app.use('/api/users', userRouter);
 app.use('/api/login', loginRouter);
+
+if (process.env.NODE_ENV === 'test') {
+  const testingRouter = require('./controllers/testing');
+  app.use('/api/testing', testingRouter);
+}
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
